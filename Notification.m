@@ -3,6 +3,7 @@
 
 #import "Notification.h"
 #import <Cordova/CDVPlugin.h>
+#import <UserNotifications/UserNotifications.h>
 
 @implementation Notification
 
@@ -19,238 +20,118 @@
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Please complete the survey within one hour."
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    NSDateComponents* date = [[NSDateComponents alloc] init];
+    date.hour = 10;
+    date.minute = 0;
+    UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 10;
+    date.minute = 40;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    // Create the request object.
+    UNNotificationRequest* request = [UNNotificationRequest
+                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
 
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 14;
+    date.minute = 0;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 14;
+    date.minute = 40;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    // Create the request object.
+    request = [UNNotificationRequest
+                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
 
-		dateComponents.hour = 10    // 14:00 hours
-		date.minute = 00
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 18;
+    date.minute = 0;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 18;
+    date.minute = 40;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    // Create the request object.
+    request = [UNNotificationRequest
+                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
 
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 22;
+    date.minute = 0;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
+                                                         arguments:nil];
+    
+    // Configure the trigger for a 7am wakeup.
+    date = [[NSDateComponents alloc] init];
+    date.hour = 22;
+    date.minute = 40;
+    trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:date repeats:YES];
+    
+    // Create the request object.
+    request = [UNNotificationRequest
+                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
 
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Reminder about the survey. Please ignore if already completed."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 10    // 14:00 hours
-		date.minute = 40
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Please complete the survey within one hour."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 14    // 14:00 hours
-		date.minute = 00
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Reminder about the survey. Please ignore if already completed."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 14    // 14:00 hours
-		date.minute = 40
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Please complete the survey within one hour."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 18    // 14:00 hours
-		date.minute = 00
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Reminder about the survey. Please ignore if already completed."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 18    // 14:00 hours
-		date.minute = 40
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Please complete the survey within one hour."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 22    // 14:00 hours
-		date.minute = 00
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
-		}
-
-		let content = UNMutableNotificationContent()
-		content.title = "BIS EMA Survey"
-		content.body = "Reminder about the survey. Please ignore if already completed."
-
-		// Configure the recurring date.
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = 22    // 14:00 hours
-		date.minute = 40
-			 
-		// Create the trigger as a repeating event.    
-		let trigger = UNCalendarNotificationTrigger(
-				     dateMatching: dateComponents, repeats: true)
-
-		// Create the request
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, 
-				        content: content, trigger: trigger)
-
-		// Schedule the request with the system.
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.add(request) { (error) in
-			 if error != nil {
-				  // Handle any errors.
-			 }
-		}
 		}
 
 @end
