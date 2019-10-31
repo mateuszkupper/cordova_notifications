@@ -1,7 +1,7 @@
 
 /********* Echo.m Cordova Plugin Implementation *******/
 
-#import "Echo.h"
+#import "Notification.h"
 #import <Cordova/CDVPlugin.h>
 
 @implementation Notification
