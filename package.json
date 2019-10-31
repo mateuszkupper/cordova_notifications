@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-notification",
+  "version": "0.2.3",
+  "description": "Cordova Device Plugin",
+  "cordova": {
+    "id": "cordova-plugin-notification",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateuszkupper/cordova_notifications.git"
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/mateuszkupper/cordova_notifications/issues"
+  },
+  "homepage": "https://github.com/mateuszkupper/cordova_notifications#readme"
+}
