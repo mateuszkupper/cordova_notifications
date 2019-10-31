@@ -6,7 +6,7 @@
     <license>Apache 2.0</license>
     <keywords>cordova,device</keywords>
     <js-module src="script.js" name="notification">
-        <clobbers target="device" />
+        <clobbers target="notification" />
     </js-module>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
