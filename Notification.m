@@ -20,117 +20,125 @@
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];*/
 
+		//10:00
     UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     NSDateComponents* date = [[NSDateComponents alloc] init];
     date.hour = 10;
     date.minute = 0;
     UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
     
+		UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"1" content:content trigger:trigger];
+
+
+		//10:40
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 10;
     date.minute = 40;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
-    
-    // Create the request object.
-    UNNotificationRequest* request = [UNNotificationRequest
-                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+   
+		request = [UNNotificationRequest requestWithIdentifier:@"2" content:content trigger:trigger];
 
+
+		//14:00
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 14;
     date.minute = 0;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
-    
+ 
+		request = [UNNotificationRequest requestWithIdentifier:@"3" content:content trigger:trigger];
+
+  	//14:40 
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 14;
     date.minute = 40;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
-    
-    // Create the request object.
-    request = [UNNotificationRequest
-                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
 
+		request = [UNNotificationRequest requestWithIdentifier:@"4" content:content trigger:trigger]; 
+
+
+		//18:00
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 18;
     date.minute = 0;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
-    
+ 
+		request = [UNNotificationRequest requestWithIdentifier:@"5" content:content trigger:trigger];
+ 
+
+		//18:40  
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 18;
     date.minute = 40;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
     
-    // Create the request object.
     request = [UNNotificationRequest
-                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+                                      requestWithIdentifier:@"6" content:content trigger:trigger];
+		
 
+		//22:00
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 22;
     date.minute = 0;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
-    
+
+		request = [UNNotificationRequest requestWithIdentifier:@"7" content:content trigger:trigger];
+
+
+		//22:40   
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
     
-    // Configure the trigger for a 7am wakeup.
     date = [[NSDateComponents alloc] init];
     date.hour = 22;
     date.minute = 40;
     trigger = [UNCalendarNotificationTrigger
                                               triggerWithDateMatchingComponents:date repeats:YES];
     
-    // Create the request object.
     request = [UNNotificationRequest
-                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+                                      requestWithIdentifier:@"8" content:content trigger:trigger];
 
 		}
 
