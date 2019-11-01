@@ -33,7 +33,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
     
 		UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"1" content:content trigger:trigger];
-
+		UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
 
 		//10:40
     content = [[UNMutableNotificationContent alloc] init];
@@ -48,7 +53,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
    
 		request = [UNNotificationRequest requestWithIdentifier:@"2" content:content trigger:trigger];
-
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
 
 		//14:00
     content = [[UNMutableNotificationContent alloc] init];
@@ -63,7 +73,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
  
 		request = [UNNotificationRequest requestWithIdentifier:@"3" content:content trigger:trigger];
-
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
   	//14:40 
     content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
@@ -77,7 +92,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
 
 		request = [UNNotificationRequest requestWithIdentifier:@"4" content:content trigger:trigger]; 
-
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
 
 		//18:00
     content = [[UNMutableNotificationContent alloc] init];
@@ -92,7 +112,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
  
 		request = [UNNotificationRequest requestWithIdentifier:@"5" content:content trigger:trigger];
- 
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}]; 
 
 		//18:40  
     content = [[UNMutableNotificationContent alloc] init];
@@ -108,7 +133,12 @@
     
     request = [UNNotificationRequest
                                       requestWithIdentifier:@"6" content:content trigger:trigger];
-		
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];		
 
 		//22:00
     content = [[UNMutableNotificationContent alloc] init];
@@ -123,7 +153,12 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
 
 		request = [UNNotificationRequest requestWithIdentifier:@"7" content:content trigger:trigger];
-
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
 
 		//22:40   
     content = [[UNMutableNotificationContent alloc] init];
@@ -139,7 +174,12 @@
     
     request = [UNNotificationRequest
                                       requestWithIdentifier:@"8" content:content trigger:trigger];
-
+		center = [UNUserNotificationCenter currentNotificationCenter];
+		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+			 if (error != nil) {
+				   NSLog(@"%@", error.localizedDescription);
+			 }
+		}];
 		}
 
 @end
