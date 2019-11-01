@@ -21,6 +21,17 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];*/
 
 		//10:00
+
+	UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+	[center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
+                      completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                          if (!error) {
+                              NSLog(@"request authorization succeeded!");
+                              [self showAlert];
+                          }
+                      }];
+
+
     UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
@@ -33,7 +44,7 @@
                                               triggerWithDateMatchingComponents:date repeats:YES];
     
 		UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"1" content:content trigger:trigger];
-		UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+		center = [UNUserNotificationCenter currentNotificationCenter];
 		[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
 			 if (error != nil) {
 				   NSLog(@"%@", error.localizedDescription);
