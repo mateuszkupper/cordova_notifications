@@ -1,5 +1,7 @@
-cordova.exec(function(winParam) {},
+exports.notification = function () {
+	cordova.exec(function(winParam) {},
              function(error) {},
-             "notification",
+             "Notification",
              "notification",
              []);
+};
