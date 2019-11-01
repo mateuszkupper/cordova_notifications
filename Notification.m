@@ -27,7 +27,6 @@
                       completionHandler:^(BOOL granted, NSError * _Nullable error) {
                           if (!error) {
                               NSLog(@"request authorization succeeded!");
-                              [self showAlert];
                           }
                       }];
 
@@ -36,7 +35,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     NSDateComponents* date = [[NSDateComponents alloc] init];
     date.hour = 10;
     date.minute = 0;
@@ -56,7 +55,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 10;
     date.minute = 40;
@@ -76,7 +75,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 14;
     date.minute = 0;
@@ -95,7 +94,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 14;
     date.minute = 40;
@@ -135,7 +134,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 18;
     date.minute = 40;
@@ -156,7 +155,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Please complete the survey within one hour."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 22;
     date.minute = 0;
@@ -176,7 +175,7 @@
     content.title = [NSString localizedUserNotificationStringForKey:@"BIS EMA Survey" arguments:nil];
     content.body = [NSString localizedUserNotificationStringForKey:@"Reminder about the survey. Please ignore if already completed."
                                                          arguments:nil];
-    
+    content.sound = [UNNotificationSound defaultSound];
     date = [[NSDateComponents alloc] init];
     date.hour = 22;
     date.minute = 40;
